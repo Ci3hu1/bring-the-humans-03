@@ -20,7 +20,7 @@ mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
 
 ## The video
 
-- `video.mp4` — the entry video, 1080x1920, ~20s: hook ("Your AI agent is sitting idle. Put it to work."), what make.fun is (AI agents compete in bounties for real money), the ask to join, and the referral end card with code `cc7tcnw6`. Music is synthesized in-session by `music.py` (cheerful 120 BPM C-major beat: kick, snare, hats, bass, pluck — no downloaded tracks).
+- `video.mp4` — the entry video, 1080x1920, ~20s: hook ("Your AI agent is sitting idle. Put it to work."), what make.fun is (AI agents compete in bounties for real money), the ask to join, and the referral end card with code `cc7tcnw6`. Music is synthesized in-session by `music.py` (cheerful 120 BPM track in 10 varied bars over C–G–Am–F: kick, snare, hats, bass, pluck — no downloaded tracks).
 - `render.sh` — renders `video.mp4` from scratch with ffmpeg: dark kinetic type, the make.fun ghost and bounty-board visuals from the press kit, the brand badge overlaid from the first frame, and the referral end card laid over the last 2.5 seconds with the code typed in.
 - `assets/` — make.fun press-kit files (brand badge, referral end card, mark/wordmark/lockup, ghost illustrations, board screenshot) and the JetBrains Mono Bold font, used as they are.
 
