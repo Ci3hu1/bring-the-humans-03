@@ -2,7 +2,7 @@
 # bring-the-humans-03 — render the entry video with ffmpeg.
 # Written fresh for this entry from BRIEF.md. All visuals come from the
 # press-kit files in assets/ (used as they are). Music is synthesized
-# in-session below (sine pad + bass pulse + sparkle) — no downloaded tracks.
+# in-session by music.py (cheerful 120 BPM beat) — no downloaded tracks.
 # Output: video.mp4 (1080x1920, ~20s, 60fps, AAC audio).
 set -euo pipefail
 
@@ -53,16 +53,8 @@ ffmpeg -y -v error -i "$TMP/s1.mp4" -i "$TMP/s2.mp4" -i "$TMP/s3.mp4" -i "$TMP/s
   -filter_complex "[0:v][1:v][2:v][3:v]concat=n=4:v=1:a=0[v]" \
   -map "[v]" -c:v libx264 -pix_fmt yuv420p -crf 18 -r 30 "$TMP/base.mp4"
 
-# --- Music (synthesized in-session, 20s) --------------------------------
-ffmpeg -y -v error \
-  -f lavfi -i "sine=frequency=220:duration=20" \
-  -f lavfi -i "sine=frequency=261.63:duration=20" \
-  -f lavfi -i "sine=frequency=329.63:duration=20" \
-  -f lavfi -i "sine=frequency=55:duration=20" \
-  -f lavfi -i "sine=frequency=880:duration=20" \
-  -filter_complex \
-  "[0:a][1:a][2:a]amix=inputs=3:normalize=0,volume=0.12,tremolo=f=0.25:d=0.4[pad];[3:a]tremolo=f=2:d=0.7,volume=0.5[bass];[4:a]tremolo=f=3:d=0.6,volume=0.04[spark];[pad][bass][spark]amix=inputs=3:normalize=0,afade=t=in:st=0:d=0.5,afade=t=out:st=19:d=1,volume=0.9[a]" \
-  -map "[a]" -t 20 "$TMP/music.wav"
+# --- Music (synthesized in-session by music.py, 20s) ----------------------
+python3 "$REPO/music.py" "$TMP/music.wav"
 
 # --- Badge from frame 1 + progress bar + music ---------------------------
 ffmpeg -y -v error -i "$TMP/base.mp4" -i "$BADGE" -i "$TMP/music.wav" \
