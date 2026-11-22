@@ -5,7 +5,7 @@
 - Slug: `bring-the-humans-03`. Title: "Bring the humans with a TikTok ad".
 - Prize: top 20 share $500 by TikTok views — 1st $100, 2nd $70, 3rd $50, 4th–10th $20, 11th–20th $14.
 - Entries close: **25 Nov 2026 02:00 WIB** (API: 2026-11-24T19:00:00Z). Results: 9 Dec 2026 08:00 WIB.
-- Field at research: 34 submissions. Leader ~36 board views (~88 actual). Our TikToks usually get 53–589 views — a decent video can lead. Post ASAP after the build.
+- Field at v5 build (22 Nov ~10:20 WIB): 163 entries, leader wikenpedia 306 views. Top-10 study: all 576×1024, 17.5–23s; 5/6 viewed are pure motion graphics with continuous motion (only #1 is GTA 6 gameplay); badge pill top-left from frame 1; magenta end card last ~2.5s with code typed in pill; caption formula "$500 bounty" + make.fun + play code; original sound. Our TikToks usually get 53–589 views — a decent video can lead. Post ASAP after the build.
 - Quota verified: day cap 6, left 6, hard limit 40/40, can_submit true. Submission rule: **Force_Last** — the last submission before the deadline is final.
 - Play code (verified): `makefun-sunset-cheddar-flipper`. Referral code (verified): `cc7tcnw6`. Referral link: https://make.fun/r/cc7tcnw6.
 
@@ -15,12 +15,12 @@ Make an original short vertical video ad for make.fun and post it publicly on Ti
 
 ## Video requirements (from the competition rules, verified via API)
 
-- Vertical (9:16), original, agent-made. ~20–25 seconds.
+- Vertical (9:16), 576×1024, 30fps, original, agent-made. ~20 seconds.
 - **make.fun's brand badge + mascot mark + wordmark on screen from the first frame until the end card.**
 - **Ends on make.fun's referral end card with referral code `cc7tcnw6` typed into its field.**
 - Brand marks/colours come from the press pack (local copies in `assets/`) and are used as they are.
 - The video is an ad in itself: as text on screen, a voice, or both, it says what make.fun is and why to join, and names make.fun. Suggested flow: hook in the first seconds ("Your AI agent is sitting idle. Put it to work."), then what make.fun is and what a viewer gets, then a call to join.
-- Style: dark high-contrast kinetic type + a looping visual element (e.g. a bounty-board visual). Own recipe — do NOT copy the field's template. No on-camera footage, no voiceover — pure agent-rendered motion graphics (cleanest for the transcript gate).
+- Style: kinetic street-poster — diagonal magenta/black panels sliding and wiping, giant outlined typography, yellow highlight strips, press-kit ghost illustrations ANIMATED (sliding, popping, scaling), small HUD details (running timer, "BOUNTY // 01" label, bottom strip). Continuous motion throughout — never a static illustration with a fade. NO leaderboard/earnings-board screenshot, NO GTA 6 or game footage. Own recipe — do NOT copy the field's template. No on-camera footage, no voiceover — pure agent-rendered motion graphics (cleanest for the transcript gate).
 - Render with ffmpeg. No network at render time for the entry program itself.
 
 ## Music (verified against the live rules)
@@ -32,9 +32,7 @@ Make an original short vertical video ad for make.fun and post it publicly on Ti
 ## Caption (exact — Joni posts manually from @fortuna5982)
 
 ```
-Made by my AI agent for a $500 bounty on make.fun, where AI agents compete for real money: make.fun/bounty/bring-the-humans-03
-Play code: makefun-sunset-cheddar-flipper
-Join with my referral link: https://make.fun/r/cc7tcnw6 #makefun #AI #bounty #fyp
+Made by my AI agent for a $500 bounty on make.fun, where AI agents compete for real money: make.fun/bounty/bring-the-humans-03 makefun-sunset-cheddar-flipper
 ```
 
 Caption must carry: `$500 bounty`, `make.fun` written out, and the play code `makefun-sunset-cheddar-flipper`.
@@ -75,6 +73,7 @@ All under `assets/` in this repo:
 - Lay the transparent card over the last 2.5 s of the clip (or hold the clip's last frame and lay it over that). Decode the WebM with libvpx-vp9 before the input (`-c:v libvpx-vp9`), or the alpha is lost.
 - From that frame, blur the clip ~28 px and turn saturation down to ~0.35, both easing in over ~0.8 s.
 - Once the field comes to rest (1.433 s into the card), type the referral code `cc7tcnw6` where the caret blinks, in JetBrains Mono Bold, ink #191419, 62 px, from x=210 centred on y=1271. First cover the caret with white (x 208, y 1230, 9×82 px) so it does not blink beside the code. Field outline: x 153, y 1174, 774×194 px. Copy button starts at x 770.
+- v5 (576×1024): scale all card coordinates by 576/1080 ≈ 0.533 — code 33 px from x≈112 centred on y≈678; caret cover x≈111, y≈656, 5×44 px; field outline x≈82, y≈626, 413×103 px; copy button from x≈411. (Implemented in render-v5.sh.)
 - Verify the last frame (`ffmpeg -sseof -0.1 -i out.mp4 -frames:v 1 last.png`): the code sits in the white field, left of the copy button.
 
 ## DO NOT
