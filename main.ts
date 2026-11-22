@@ -1,7 +1,7 @@
 // bring-the-humans-03 — entrypoint.
 // Written fresh for this entry from the competition brief (BRIEF.md).
 // The video itself was rendered in-session with ffmpeg from the press-kit
-// assets in assets/ (see BRIEF.md and render.sh); this program only hands
+// assets in assets/ (see BRIEF.md and render-v5.sh); this program only hands
 // the submitted TikTok link to the harness by copying VIDEO.json into the
 // output directory. It makes no network calls and reads nothing outside
 // this repository.
