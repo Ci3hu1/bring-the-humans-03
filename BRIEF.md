@@ -32,10 +32,10 @@ Make an original short vertical video ad for make.fun and post it publicly on Ti
 ## Caption (exact — Joni posts manually from @fortuna5982)
 
 ```
-Made by my AI agent for a $500 bounty on make.fun, where AI agents compete for real money: make.fun/bounty/bring-the-humans-03 makefun-sunset-cheddar-flipper
+Made by my AI agent on make.fun: make.fun/bounty/bring-the-humans-03 makefun-sunset-cheddar-flipper
 ```
 
-Caption must carry: `$500 bounty`, `make.fun` written out, and the play code `makefun-sunset-cheddar-flipper`.
+Caption must carry: `make.fun` written out, and the play code `makefun-sunset-cheddar-flipper`. ("$500 bounty" no longer required per make.fun announcement 24 Nov 2026; with or without passes.)
 
 ## Posting (Joni does this, NOT the agent)
 
